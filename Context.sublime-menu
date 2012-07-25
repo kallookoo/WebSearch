@@ -1,0 +1,4 @@
+[
+    { "caption": "-", "id": "file" },
+    { "command": "web_search", "caption": "Web Search" }
+]

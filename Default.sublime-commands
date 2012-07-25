@@ -1,0 +1,64 @@
+[
+    {
+        "caption": "Preferences: WebSearch Settings – Default",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/WebSearch/WebSearch.sublime-settings"
+        }
+    },
+    {
+        "caption": "Preferences: WebSearch Settings – User",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/WebSearch.sublime-settings"
+        }
+    },
+    {
+        "caption": "Preferences: WebSearch Key Bindings – Default",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/WebSearch/Default (Windows).sublime-keymap",
+            "platform": "Windows"
+        }
+    },
+    {
+        "caption": "Preferences: WebSearch Key Bindings – Default",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/WebSearch/Default (OSX).sublime-keymap",
+            "platform": "OSX"
+        }
+    },
+    {
+        "caption": "Preferences: WebSearch Key Bindings – Default",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/WebSearch/Default (Linux).sublime-keymap",
+            "platform": "Linux"
+        }
+    },
+    {
+        "caption": "Preferences: WebSearch Key Bindings – User",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/Default (Windows).sublime-keymap",
+            "platform": "Windows"
+        }
+    },
+    {
+        "caption": "Preferences: WebSearch Key Bindings – User",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/Default (OSX).sublime-keymap",
+            "platform": "OSX"
+        }
+    },
+    {
+        "caption": "Preferences: WebSearch Key Bindings – User",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/Default (Linux).sublime-keymap",
+            "platform": "Linux"
+        }
+    }
+]
