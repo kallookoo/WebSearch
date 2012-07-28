@@ -1,22 +1,37 @@
 # WebSearch
 
-A [Sublime Text 2](http://www.sublimetext.com/2) plugin that performs a 
+A simple [Sublime Text 2](http://www.sublimetext.com/2) plugin used to do a 
 web search of current selected text.
 
-By default `Google` is used for web searches but the search provider is
-configurable in the plugin settings.
+By default `Google` is used for web searches but the search provider is configurable.
 
 # Installation
 
-Just clone WebSearch repository under your ST2 Packages folder.
+1. Manually
+    - Download an [archive](https://github.com/catalinc/WebSearch/zipball/master) of Web Search
+    - Extract archive contents under ST2/Packages directory (Preferences->Browse packages)
+2. Using git repository on github
+    - Open an terminal, cd to ST2/Packages directory
+    - `git clone https://github.com/catalinc/WebSearch "Web Search"`
+3. Using [Package Control](http://wbond.net/sublime_packages/package_control) (pending)
+    - From command palette `Package Control: Install Package`
+    - Look for `WebSearch`
 
-# Configuration
+# Usage
 
-To change search the provider just change the value of `search_url` 
-configuration key.
+- Select a block of text
+- Using keyboard 
+    - GNU/Linux, Windows, OSX: `ctrl+shif+g`
+- Using mouse
+    - `Right click > Web Search`
 
-For example to use `DuckDuckGo` instead of `Google` change `search_url` to:
+# Settings
 
-    {
-        "search_url": "http://duckduckgo.com/?q="
-    }
+- To change search provider
+    - Open Preferences > Package Settings > Web Search > Settings - User
+    - Change the value of `search_url` configuration key:
+    > {
+    >    "search_url": "http://duckduckgo.com/?q="
+    > }
+- To change default keyboard shortcut
+    -  Open Preferences > Package Settings > Web Search > Key Bindings - User 
