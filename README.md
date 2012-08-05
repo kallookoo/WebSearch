@@ -2,7 +2,7 @@
 
 A simple [Sublime Text 2](http://www.sublimetext.com/2) plugin used to do a 
 web search of current selected text. By default Google is used for web searches
-but the search provider is configurable.
+but the search engine is configurable.
 
 # Installation
 
@@ -13,7 +13,7 @@ but the search provider is configurable.
 2. Using git repository on github
     - Open an terminal, cd to ST2/Packages directory
     - `git clone https://github.com/catalinc/WebSearch`
-3. Using [Package Control](http://wbond.net/sublime_packages/package_control) (pending)
+3. Using [Package Control](http://wbond.net/sublime_packages/package_control)
     - From command palette `Package Control: Install Package`
     - Look for "WebSearch"
 
@@ -21,20 +21,47 @@ but the search provider is configurable.
 
 - Select a block of text
 - Using keyboard: `ctrl+shif+g`
-- Using mouse: `Right click > Web Search`
+- Using mouse: `Right click > Search <SelectedSearchEngine> for '<Text>'`
 
 # Settings
 
-### Change default search provider
+### Change default search engine
 
 - Open `Preferences > Package Settings > Web Search > Settings - User`
-- Change the value of `search_url` configuration key
+- Change `active` configuration key to one supported search engines
+    - Google
+    - DuckDuckGo
+    - Yahoo
+    - Bing
+    - Ask
+    - Wikipedia
 
 Code:
 
     {
-        // use DuckDuckGo instead of Google for searches
-        "search_url": "http://duckduckgo.com/?q="
+        // use DuckDuckGo for web searches
+        "active": "DuckDuckGo"
+    }
+
+### Add a new search engine
+
+- Open `Preferences > Package Settings > Web Search > Settings - Default`
+- Add a new entry under `engines`
+
+Code:
+
+    {
+        "engines": 
+        {
+            "Google": "http://google.com/search?q=",
+            "DuckDuckGo": "http://duckduckgo.com/?q=",
+            "Yahoo": "http://search.yahoo.com/search?p=",
+            "Bing": "http://www.bing.com/search?q=",
+            "Ask": "http://www.ask.com/web?q=",
+            "Wikipedia": "http://wikipedia.org/w/index.php?search=",
+            "<SearchEngineName>": "<SearchUrl>" // new
+        },
+        "active": "Google"
     }
 
 ### Change default keyboard shortcut

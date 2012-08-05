@@ -1,3 +1,12 @@
 {
-	"search_url": "http://google.com/search?q="
+    "engines": 
+    {
+        "Google": "http://google.com/search?q=",
+        "DuckDuckGo": "http://duckduckgo.com/?q=",
+        "Yahoo": "http://search.yahoo.com/search?p=",
+        "Bing": "http://www.bing.com/search?q=",
+        "Ask": "http://www.ask.com/web?q=",
+        "Wikipedia": "http://wikipedia.org/w/index.php?search="
+    },
+	"active": "Google"
 }
