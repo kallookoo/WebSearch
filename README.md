@@ -1,6 +1,6 @@
 # WebSearch
 
-A simple [Sublime Text 2](http://www.sublimetext.com/2) plugin to do a web search of current selected text.
+A simple [Sublime Text 2](http://www.sublimetext.com/2) plugin to web search selected text.
 By default Google is used for web searches but the search engine is configurable.
 
 # Installation
