@@ -1,8 +1,7 @@
 # WebSearch
 
-A simple [Sublime Text 2](http://www.sublimetext.com/2) plugin used to do a 
-web search of current selected text. By default Google is used for web searches
-but the search engine is configurable.
+A simple [Sublime Text 2](http://www.sublimetext.com/2) plugin to do a web search of current selected text.
+By default Google is used for web searches but the search engine is configurable.
 
 # Installation
 
@@ -16,6 +15,7 @@ but the search engine is configurable.
 3. Using [Package Control](http://wbond.net/sublime_packages/package_control)
     - From command palette `Package Control: Install Package`
     - Look for "WebSearch"
+    - Restart Sublime Text
 
 # Usage
 
