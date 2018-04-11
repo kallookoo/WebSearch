@@ -1,19 +1,12 @@
 # WebSearch
 
-[Sublime Text 2](http://www.sublimetext.com/2) plugin to web search selected text.
+[Sublime Text](https://www.sublimetext.com) plugin to web search selected text.
 
 By default Google is used for web searches, but the search engine is configurable.
 
-# Installation
+# Installation (Do not install, it is in development)
 
-1. Manually
-    - Download an [archive](https://github.com/catalinc/WebSearch/zipball/master) of Web Search
-    - Extract archive contents under `ST2/Packages/WebSearch` directory 
-      (use `Preferences > Browse Packages...` to locate ST2/Packages directory) 
-2. Using git repository on github
-    - Open an terminal, cd to ST2/Packages directory
-    - `git clone https://github.com/catalinc/WebSearch`
-3. Using [Package Control](http://wbond.net/sublime_packages/package_control)
+Using [Package Control](http://wbond.net/sublime_packages/package_control)
     - From command palette `Package Control: Install Package`
     - Look for "WebSearch"
     - Restart Sublime Text
