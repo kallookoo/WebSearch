@@ -1,12 +1,38 @@
 {
-    "engines": 
-    {
-        "Google": "http://google.com/search?q=",
-        "DuckDuckGo": "http://duckduckgo.com/?q=",
-        "Yahoo": "http://search.yahoo.com/search?p=",
-        "Bing": "http://www.bing.com/search?q=",
-        "Ask": "http://www.ask.com/web?q=",
-        "Wikipedia": "http://wikipedia.org/w/index.php?search="
-    },
-	"active": "Google"
+    // Select current engine
+    "active": "Google",
+    // Include Sources engines
+    // They are the ones that have occurred to me ;)
+    // Current available:
+    //     "MDN": "https://developer.mozilla.org/search?q=",
+    //     "PHP": "https://php.net/search.php?show=quickref&pattern=",
+    //     "Python": "https://docs.python.org/3/search.html?q=",
+    //     "WordPress": "https://developer.wordpress.org/?s="
+    "engines_for_sources": true,
+    // Default engines defined inside of plugin
+    // is possible overwritte any engine using same name
+    // "engines":
+    // {
+    //     "Ask": "https://www.ask.com/web?q=",
+    //     "Bing": "https://www.bing.com/search?q=",
+    //     "DuckDuckGo": "https://duckduckgo.com/?q=",
+    //     "Google": "https://google.com/search?q=",
+    //     "Wikipedia": "https://wikipedia.org/w/index.php?search=",
+    //     "Yahoo": "https://search.yahoo.com/search?p="
+    // },
+    // Show context menu with different caption:
+    // 1 - default text caption "Web Search"
+    // 2 - Custom text "Search on <engine>"
+    // 3 - Custom text with excerpt "Search on <engine> for <excerpt>..."
+    "context_menu_description": 3,
+    // Length of the selected text for view in context menu
+    "context_menu_description_length": 10,
+    // Mode to open browser, tab or window
+    "browser_mode": "tab",
+    // Command Pallete change engine
+    "engine_change": true,
+    // Permistent engine only on session
+    // only work if engine_change is true
+    // and only change context menu search engine
+    "session_engine_change": true
 }

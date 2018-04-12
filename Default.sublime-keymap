@@ -1,0 +1,11 @@
+[
+    {
+        "keys": ["ctrl+shift+s"], "command": "web_search", "args": { "input_panel": false }
+    },
+    {
+        "keys": ["ctrl+alt+s"], "command": "web_search_enter", "args": {"input_panel": false }
+    },
+    {
+    	"keys": ["ctrl+shift+e"], "command": "web_search_engine", "args": {"input_panel": false }
+    }
+]

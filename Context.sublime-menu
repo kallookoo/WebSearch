@@ -1,4 +1,4 @@
 [
-    { "caption": "-", "id": "file" },
-    { "command": "web_search"}
+    { "caption": "-" },
+    { "command": "web_search", "args": { "input_panel": false } }
 ]
