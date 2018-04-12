@@ -14,12 +14,14 @@ By default Google is used for web searches, but the search engine is configurabl
 # Installation
 
 Using git repository on github
-    - Open an terminal, cd to Sublime Text/Packages directory
-    - `git clone https://github.com/kallookoo/WebSearch`
+
+- Open an terminal, cd to Sublime Text/Packages directory
+- `git clone https://github.com/kallookoo/WebSearch`
 
 Using [Package Control](http://wbond.net/sublime_packages/package_control) "Not available"
-    - From command palette `Package Control: Install Package`
-    - Look for "WebSearch"
+
+- From command palette `Package Control: Install Package`
+- Look for "WebSearch"
 
 ## Usage
 
