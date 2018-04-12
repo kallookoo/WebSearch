@@ -4,7 +4,7 @@
 
 This package adds:
 
-* A `Web Search` command to the context menu for the selected
+* A `Web Search` command to the context menu on the view.
 * A command palette for the current selection or word
 * A command palette that will ask you what to search
 * A command palette for change engine during session (Close Sublime Text, return to active engine)
@@ -23,10 +23,10 @@ Using [Package Control](http://wbond.net/sublime_packages/package_control) "Not 
 
 ## Usage
 
+- Using context menu on view, see `context_menu_description` option
 - Place the cursor inside a word or select some text and press `Ctrl+Shift+s`.
 - Using Command Pallete:
   Find WebSearch... and select available options
-- Using context menu on view, see `context_menu_description` option
 
 # Settings
 
