@@ -83,15 +83,9 @@ Code:
 
 ### Available keyboard shortcut
 
-    {
-        "keys": ["ctrl+shift+s"], "command": "web_search", "args": { "input_panel": false }
-    },
-    {
-        "keys": ["ctrl+alt+s"], "command": "web_search_enter", "args": {"input_panel": false }
-    },
-    {
-        "keys": ["ctrl+shift+e"], "command": "web_search_engine", "args": {"input_panel": false }
-    }
+- For launch search `ctrl+shift+s`
+- For launch search with custom query `ctrl+alt+s`
+- For change active engine only on current session `ctrl+shift+e`
 
 ### Change default keyboard shortcut
 
