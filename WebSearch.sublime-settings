@@ -30,9 +30,6 @@
     // Mode to open browser, tab or window
     "browser_mode": "tab",
     // Command Pallete change engine
-    "engine_change": true,
-    // Permistent engine only on session
-    // only work if engine_change is true
-    // and only change context menu search engine
-    "session_engine_change": true
+    // Change engine before search
+    "engine_change": false
 }

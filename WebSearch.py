@@ -35,7 +35,6 @@ class WebSearchCommon(object):
 
     def set_engine_setting(self, engine):
         settings = sublime.load_settings('WebSearch.sublime-settings')
-        settings.set('old_active', self.get_setting('active', 'Google'))
         settings.set('active', engine)
 
     def get_engines(self):
@@ -47,13 +46,15 @@ class WebSearchCommon(object):
             "Wikipedia": "https://wikipedia.org/w/index.php?search=",
             "Yahoo": "https://search.yahoo.com/search?p="
         }
-        dev_engines = {
-            "MDN": "https://developer.mozilla.org/search?q=",
-            "PHP": "https://php.net/search.php?show=quickref&pattern=",
-            "Python": "https://docs.python.org/3/search.html?q=",
-            "Python2": "https://docs.python.org/2/search.html?q=",
-            "WordPress": "https://developer.wordpress.org/?s="
-        }
+        if self.get_setting('engines_for_sources', False):
+            dev_engines = {
+                "MDN": "https://developer.mozilla.org/search?q=",
+                "PHP": "https://php.net/search.php?show=quickref&pattern=",
+                "Python": "https://docs.python.org/3/search.html?q=",
+                "Python2": "https://docs.python.org/2/search.html?q=",
+                "WordPress": "https://developer.wordpress.org/?s="
+            }
+            engines.update(dev_engines)
         user_engines = self.get_setting('engines', {})
         if len(user_engines):
             engines.update(user_engines)
@@ -98,6 +99,7 @@ class WebSearchCommand(sublime_plugin.TextCommand,WebSearchCommon):
             self.window = self.view.window()
             self.args['input_panel'] = False
             sublime.set_timeout(self.show_engine_panel, 10)
+        self.engine_url = self.engine_url if len(self.engine_url) else self.get_engine(self.get_setting('active', 'Google'))
         self.search(self.get_text(self.view), self.engine_url)
 
     def is_visible(self):
@@ -131,7 +133,7 @@ class WebSearchEnterCommand(sublime_plugin.WindowCommand,WebSearchCommon):
 
     def show_search_panel(self):
         self.window.show_input_panel(
-            'Enter a search text', '', self.on_search_done, self.on_search_change, self.on_search_cancel)
+            'Enter a search text', '', self.on_search_done, None, None)
 
     def on_search_done(self, text):
         text = text.strip()
@@ -141,11 +143,6 @@ class WebSearchEnterCommand(sublime_plugin.WindowCommand,WebSearchCommon):
             else:
                 self.search(text, self.get_engine(self.get_setting('active', 'Google')))
 
-    def on_search_change(self):
-        pass
-
-    def on_search_cancel(self):
-        pass
 
 class WebSearchEngineCommand(sublime_plugin.WindowCommand,WebSearchCommon):
 
