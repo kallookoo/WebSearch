@@ -1,6 +1,6 @@
 # WebSearch
 
-[Sublime Text](https://www.sublimetext.com) plugin to search on WWW.
+[Sublime Text](https://www.sublimetext.com) plugin to search on World Wide Web.
 
 This package adds:
 
