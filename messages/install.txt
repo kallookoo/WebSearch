@@ -1,6 +1,6 @@
 # WebSearch
 
-[Sublime Text](https://www.sublimetext.com) plugin to search on World Wide Web.
+Sublime Text plugin to search on World Wide Web.
 
 This package adds:
 
@@ -10,18 +10,6 @@ This package adds:
 * A command palette for change engine during session (Close Sublime Text, return to active engine)
 
 By default Google is used for web searches, but the search engine is configurable.
-
-# Installation
-
-Using git repository on github
-
-- Open an terminal, cd to Sublime Text/Packages directory
-- `git clone https://github.com/kallookoo/WebSearch`
-
-Using [Package Control](http://wbond.net/sublime_packages/package_control)
-
-- From command palette `Package Control: Install Package`
-- Look for "WebSearch"
 
 ## Usage
 
