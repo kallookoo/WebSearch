@@ -1,4 +1,5 @@
 [
     { "caption": "-" },
-    { "command": "web_search", "args": { "input_panel": false } }
+    { "command": "web_search", "args": { "input_panel": false } },
+    { "caption": "-" }
 ]

@@ -14,38 +14,22 @@
                     {
                         "caption": "WebSearch",
                         "children":
-                        [
+                         [
                             {
-                                "command": "open_file", 
+                                "command": "open_file",
                                 "args": {"file": "${packages}/WebSearch/WebSearch.sublime-settings"},
                                 "caption": "Settings – Default"
                             },
                             {
-                                "command": "open_file", 
+                                "command": "open_file",
                                 "args": {"file": "${packages}/User/WebSearch.sublime-settings"},
                                 "caption": "Settings – User"
                             },
+                            { "caption": "-" },
                             {
                                 "command": "open_file",
                                 "args": {
-                                    "file": "${packages}/WebSearch/Default (Windows).sublime-keymap",
-                                    "platform": "Windows"
-                                },
-                                "caption": "Key Bindings – Default"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/WebSearch/Default (OSX).sublime-keymap",
-                                    "platform": "OSX"
-                                },
-                                "caption": "Key Bindings – Default"
-                            },
-                            {
-                                "command": "open_file",
-                                "args": {
-                                    "file": "${packages}/WebSearch/Default (Linux).sublime-keymap",
-                                    "platform": "Linux"
+                                    "file": "${packages}/WebSearch/Default.sublime-keymap"
                                 },
                                 "caption": "Key Bindings – Default"
                             },
