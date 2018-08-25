@@ -10,7 +10,6 @@ except ImportError:
     # Python 2
     from urllib.parse import quote_plus as url_text_encode
 
-
 class WebSearchCommon(object):
 
     engine_url = ''
@@ -79,7 +78,7 @@ class WebSearchCommon(object):
         self.engine_url = ''
         if index != -1:
             self.set_engine_setting(self.items[index])
-            self.engine_url = self.get_engine(self.items[index])
+            # self.engine_url = self.get_engine(self.items[index])
         if self.get_setting('engine_change', False) and self.args['input_panel']:
             sublime.set_timeout(self.show_search_panel, 10)
 
@@ -99,7 +98,7 @@ class WebSearchCommand(sublime_plugin.TextCommand,WebSearchCommon):
             self.window = self.view.window()
             self.args['input_panel'] = False
             sublime.set_timeout(self.show_engine_panel, 10)
-        self.engine_url = self.engine_url if len(self.engine_url) else self.get_engine(self.get_setting('active', 'Google'))
+        self.engine_url = self.get_engine(self.get_setting('active', 'Google'))
         self.search(self.get_text(self.view), self.engine_url)
 
     def is_visible(self):
