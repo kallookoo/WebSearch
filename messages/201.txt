@@ -1,0 +1,5 @@
+Version 2.0.1
+
+- Add 'status_bar_text_prefix' option to remove or change 'WebSearch:' text on status bar
+- 'current_engine' and 'exclude_engines_from_list' work in case insensitive
+  Note: Everywhere the original name is displayed

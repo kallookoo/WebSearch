@@ -3,7 +3,7 @@ import sublime_plugin
 import webbrowser
 import re
 import os
-from collections import OrderedDict
+import collections
 import json
 
 try:
@@ -12,6 +12,7 @@ try:
 except ImportError:
     # Python 2
     from urllib.parse import quote_plus as url_text_encode
+
 
 def is_ST2():
     return False if int(sublime.version()) >= 3000 else True
@@ -43,50 +44,68 @@ def get_engines():
         engines.update(developer_engines)
     exclude_engines = s.get('exclude_engines_from_list', [])
     if len(exclude_engines):
+        exclude_engines.extend([v.lower() for v in exclude_engines])
+        exclude_engines.extend([v.upper() for v in exclude_engines])
         engines = {key: value for key, value in engines.items() if not key in exclude_engines}
-    return OrderedDict(sorted(engines.items(), key=lambda i: i[0].lower()))
+    return collections.OrderedDict(sorted(engines.items(), key=lambda i: i[0].lower()))
+
+def get_current_engine(engine=False):
+    if not engine:
+        s = sublime.load_settings('WebSearch.sublime-settings')
+        engine = s.get('active', s.get('current_engine', 'Google'))
+    engines = get_engines()
+    if not engine in engines:
+        for k in engines:
+            if engine.lower() == k.lower():
+                engine = k
+                break
+    return engine
 
 def generate_context_menu(children=False):
-    context_menu_file = os.path.join(sublime.packages_path(), 'WebSearch', 'Context.sublime-menu')
+    plugin_directory = os.path.join(sublime.packages_path(), 'WebSearch')
+    context_menu_file = os.path.join(plugin_directory, 'Context.sublime-menu')
+    if not os.path.isdir(plugin_directory):
+        os.makedirs(plugin_directory)
     if children:
         template = [{'caption': '-'}]
         children_template = []
         for k in get_engines():
             children_template.append({ 'command': 'web_search', 'args': { 'input_panel': False, 'engine': k } })
-        template.append({'caption': 'WebSearch', 'children': children_template})
-        template.append({'caption': '-'})
+        template.extend([{'caption': 'WebSearch', 'children': children_template}, {'caption': '-'}])
     else:
         template = [{ "caption": "-" },{ "command": "web_search", "args": { "input_panel": False } },{ "caption": "-" }]
     with open(context_menu_file, 'w') as file:
         json.dump(template, file, indent=4)
 
+def update_status_bar(view=None):
+    def status_bar(view, s):
+        text = s.get('status_bar_text_prefix', 'WebSearch:').strip()
+        engine = get_current_engine()
+        if s.get('show_current_engine_on_status_bar', False):
+            if len(text):
+                view.set_status('WebSearch.engine', '%s %s' % (text, engine))
+            else:
+                view.set_status('WebSearch.engine', engine)
+        else:
+            view.erase_status('WebSearch.engine')
+    s = sublime.load_settings('WebSearch.sublime-settings')
+    if None == view:
+        for window in sublime.windows():
+            for view in window.views():
+                status_bar(view, s)
+    else:
+        status_bar(view, s)
+
 def update_context_menu():
     context_with_children = sublime.load_settings('WebSearch.sublime-settings').get('context_menu_with_children', False)
     generate_context_menu(context_with_children)
-
-def update_status_bar(view=None):
-    s = sublime.load_settings('WebSearch.sublime-settings')
-    engine = s.get('active', s.get('current_engine', False))
-    if engine:
-        if None == view:
-            for window in sublime.windows():
-                for view in window.views():
-                    if s.get('show_current_engine_on_status_bar', False):
-                        view.set_status('WebSearch.engine', 'WebSearch: %s' % (engine))
-                    else:
-                        view.erase_status('WebSearch.engine')
-        else:
-            if s.get('show_current_engine_on_status_bar', False):
-                view.set_status('WebSearch.engine', 'WebSearch: %s' % (engine))
-            else:
-                view.erase_status('WebSearch.engine')
+    update_status_bar()
 
 def plugin_loaded():
     update_context_menu()
     s = sublime.load_settings('WebSearch.sublime-settings')
     s.clear_on_change('web_search_reload')
     s.add_on_change('web_search_reload', update_context_menu)
-    update_status_bar()
 
 if is_ST2():
     plugin_loaded()
@@ -113,7 +132,7 @@ class WebSearchCommon(object):
 
     def set_engine_setting(self, engine):
         settings = sublime.load_settings('WebSearch.sublime-settings')
-        settings.set('current_engine', engine)
+        settings.set('current_engine', get_current_engine(engine))
         update_status_bar()
 
     def get_engines(self):
@@ -121,7 +140,10 @@ class WebSearchCommon(object):
 
     def get_engine(self, name):
         engines = self.get_engines()
-        return '' if not name in engines else engines[name]
+        name = get_current_engine(name)
+        if name in engines:
+            return engines[name]
+        return ''
 
     def search(self, text, url=None):
         engine_name = self.get_setting('active', self.get_setting('current_engine', 'Google'))
@@ -163,7 +185,7 @@ class WebSearchCommand(sublime_plugin.TextCommand,WebSearchCommon):
     def description(self, **args):
         type_caption = int(self.get_setting('context_menu_description', 1))
         text_caption = "Web Search"
-        engine = self.get_setting('active', self.get_setting('current_engine', 'Google'))
+        engine = get_current_engine()
         if self.get_setting('context_menu_with_children', False):
             engine = args['engine']
             if type_caption == 1:

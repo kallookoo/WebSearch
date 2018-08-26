@@ -76,7 +76,9 @@ Using [Package Control](http://wbond.net/sublime_packages/package_control)
         // - WebSearch: Search text
         "engine_change": false,
         // Add "WebSearch: <engine>" on status bar
-        "show_current_engine_on_status_bar": true
+        "show_current_engine_on_status_bar": true,
+        // Use for remove or change status bar text prefix
+        "status_bar_text_prefix": "WebSearch:"
     }
 
 
