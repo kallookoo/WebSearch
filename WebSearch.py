@@ -112,6 +112,8 @@ if is_ST2():
 
 class WebSearchCommon(object):
 
+    args = {}
+
     def get_text(self, view):
         text = []
         for region in view.sel():
@@ -146,7 +148,8 @@ class WebSearchCommon(object):
         return ''
 
     def search(self, text, url=None):
-        engine_name = self.get_setting('active', self.get_setting('current_engine', 'Google'))
+        engine = False if not 'engine' in self.args else self.args['engine']
+        engine_name = get_current_engine(engine)
         url = self.get_engine(engine_name)
         if url.startswith('http') and len(text):
             self.webbrowser(url + url_text_encode(text))
@@ -173,10 +176,11 @@ class WebSearchCommand(sublime_plugin.TextCommand,WebSearchCommon):
 
     def run(self, edit, **args):
         self.args = args
-        if self.get_setting('engine_change', False) and args['input_panel']:
+        if self.get_setting('engine_change', False) and self.args['input_panel']:
             self.window = self.view.window()
             self.args['input_panel'] = False
             sublime.set_timeout(self.show_engine_panel, 10)
+
         self.search(self.get_text(self.view))
 
     def is_visible(self):
@@ -206,7 +210,8 @@ class WebSearchCommand(sublime_plugin.TextCommand,WebSearchCommon):
 class WebSearchEnterCommand(sublime_plugin.WindowCommand,WebSearchCommon):
 
     def run(self, **args):
-        if self.get_setting('engine_change', False) and args['input_panel']:
+        self.args = args
+        if self.get_setting('engine_change', False) and self.args['input_panel']:
             sublime.set_timeout(self.show_engine_panel, 10)
         else:
             sublime.set_timeout(self.show_search_panel, 10)
