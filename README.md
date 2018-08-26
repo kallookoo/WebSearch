@@ -13,11 +13,6 @@ By default Google is used for web searches, but the search engine is configurabl
 
 # Installation
 
-Using git repository on github
-
-- Open an terminal, cd to Sublime Text/Packages directory
-- `git clone https://github.com/kallookoo/WebSearch`
-
 Using [Package Control](http://wbond.net/sublime_packages/package_control)
 
 - From command palette `Package Control: Install Package`
@@ -25,7 +20,7 @@ Using [Package Control](http://wbond.net/sublime_packages/package_control)
 
 ## Usage
 
-- Using context menu on view, see `context_menu_description` option
+- Using context menu on view, see `context_menu` options for customize.
 - Place the cursor inside a word or select some text and press `Ctrl+Shift+s`.
 - Using Command Pallete:
   Find WebSearch... and select available options
@@ -34,15 +29,7 @@ Using [Package Control](http://wbond.net/sublime_packages/package_control)
 
     {
         // Select current engine
-        "active": "Google",
-        // Include Sources engines
-        // They are the ones that have occurred to me ;)
-        // Current available:
-        //     "MDN": "https://developer.mozilla.org/search?q=",
-        //     "PHP": "https://php.net/search.php?show=quickref&pattern=",
-        //     "Python": "https://docs.python.org/3/search.html?q=",
-        //     "WordPress": "https://developer.wordpress.org/?s="
-        "engines_for_sources": true,
+        "current_engine": "Google",
         // Default engines defined inside of plugin
         // is possible overwritte any engine using same name
         // "engines":
@@ -54,8 +41,28 @@ Using [Package Control](http://wbond.net/sublime_packages/package_control)
         //     "Wikipedia": "https://wikipedia.org/w/index.php?search=",
         //     "Yahoo": "https://search.yahoo.com/search?p="
         // },
+        "engines": {},
+        // Enable developer engines
+        "use_developer_engines": false,
+        // Default developer enfines inside of plugin
+        // is possible overwritte any engine using same name.
+        // They are the ones that have occurred to me ;)
+        // "developer_engines":
+        // {
+        //     "MDN": "https://developer.mozilla.org/search?q=",
+        //     "PHP": "https://php.net/search.php?show=quickref&pattern=",
+        //     "Python": "https://docs.python.org/3/search.html?q=",
+        //     "Python2": "https://docs.python.org/2/search.html?q=",
+        //     "WordPress": "https://developer.wordpress.org/?s="
+        // },
+        "developer_engines": {},
+        // Exclude available engines for show
+        // Default to exclude: ["Ask", "Bing", "Yahoo", "Python2"]
+        "exclude_engines_from_list": ["Ask", "Bing", "Yahoo", "Python2"],
+        // Change mode of the context menu
+        "context_menu_with_children": false,
         // Show context menu with different caption:
-        // 1 - default text caption "Web Search"
+        // 1 - default text caption "Web Search" (disabled if "context_menu_with_children": true)
         // 2 - Custom text "Search on <engine>"
         // 3 - Custom text with excerpt "Search on <engine> for <excerpt>..."
         "context_menu_description": 3,
@@ -63,10 +70,15 @@ Using [Package Control](http://wbond.net/sublime_packages/package_control)
         "context_menu_description_length": 10,
         // Mode to open browser, tab or window
         "browser_mode": "tab",
-        // Command Pallete change engine
-        // Change engine before search
-        "engine_change": false
+        // Change the search engine when the Command Palette is used
+        // Command palette option on execute:
+        // - WebSearch: Search selected text
+        // - WebSearch: Search text
+        "engine_change": false,
+        // Add "WebSearch: <engine>" on status bar
+        "show_current_engine_on_status_bar": true
     }
+
 
 ### Add a new or rewritte exists search engine
 
@@ -81,11 +93,12 @@ Code:
         }
     }
 
+
 ### Available keyboard shortcut
 
-- For launch search `ctrl+shift+s`
+- For launch search with current engine `ctrl+shift+s`
 - For launch search with custom query `ctrl+alt+s`
-- For change active engine only on current session `ctrl+shift+e`
+- For change current engine only on current session `ctrl+shift+e`
 
 ### Change default keyboard shortcut
 

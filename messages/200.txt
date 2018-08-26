@@ -1,0 +1,7 @@
+Version 2.0.0
+
+- Rename 'active' option with 'current_engine'
+- Rename 'engines_for_sources' option with 'use_developer_engines'
+- Add 'context_menu_with_children' option to show list of the engines on the context menu
+- Add 'exclude_engines_from_list' option to exclude available engines
+- Add 'show_current_engine_on_status_bar' option to view the current engine

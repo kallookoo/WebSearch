@@ -1,5 +1,55 @@
 [
-    { "caption": "-" },
-    { "command": "web_search", "args": { "input_panel": false } },
-    { "caption": "-" }
+    {
+        "caption": "-"
+    }, 
+    {
+        "children": [
+            {
+                "args": {
+                    "engine": "DuckDuckGo", 
+                    "input_panel": false
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "engine": "MDN", 
+                    "input_panel": false
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "engine": "PHP", 
+                    "input_panel": false
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "engine": "Python", 
+                    "input_panel": false
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "engine": "Wikipedia", 
+                    "input_panel": false
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "engine": "WordPress", 
+                    "input_panel": false
+                }, 
+                "command": "web_search"
+            }
+        ], 
+        "caption": "WebSearch"
+    }, 
+    {
+        "caption": "-"
+    }
 ]
