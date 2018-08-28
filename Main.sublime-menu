@@ -57,6 +57,22 @@
                                 },
                                 "caption": "Key Bindings – User"
                             },
+                            { "caption": "-" },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/WebSearch/README.md"
+                                },
+                                "caption": "README"
+                            },
+                            { "caption": "-" },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/WebSearch/LICENSE"
+                                },
+                                "caption": "LICENSE"
+                            },
                             { "caption": "-" }
                         ]
                     }

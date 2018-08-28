@@ -1,13 +1,54 @@
 [
     {
         "caption": "-"
-    },
+    }, 
     {
-        "args": {
-            "input_panel": false
-        },
-        "command": "web_search"
-    },
+        "caption": "Web Search", 
+        "children": [
+            {
+                "args": {
+                    "input_panel": false, 
+                    "engine": "DuckDuckGo"
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "input_panel": false, 
+                    "engine": "MDN"
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "input_panel": false, 
+                    "engine": "PHP"
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "input_panel": false, 
+                    "engine": "Python"
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "input_panel": false, 
+                    "engine": "Wikipedia"
+                }, 
+                "command": "web_search"
+            }, 
+            {
+                "args": {
+                    "input_panel": false, 
+                    "engine": "WordPress"
+                }, 
+                "command": "web_search"
+            }
+        ]
+    }, 
     {
         "caption": "-"
     }

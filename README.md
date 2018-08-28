@@ -70,16 +70,19 @@ Using [Package Control](http://wbond.net/sublime_packages/package_control)
         "context_menu_description_length": 10,
         // Mode to open browser, tab or window
         "browser_mode": "tab",
-        // Change the search engine when the Command Palette is used
+        // Select and change the search engine when the Command Palette is used
         // Command palette option on execute:
         // - WebSearch: Search selected text
         // - WebSearch: Search text
+        // Note:
+        // It does change globally, to maintain the "current_engine" and not have to change it again.
         "engine_change": false,
         // Add "WebSearch: <engine>" on status bar
         "show_current_engine_on_status_bar": true,
         // Use for remove or change status bar text prefix
         "status_bar_text_prefix": "WebSearch:"
     }
+
 
 
 ### Add a new or rewritte exists search engine

@@ -1,0 +1,5 @@
+Version 2.0.3
+
+- Fix Sublime Text 2 issues
+- "engine_change" only work in command palette
+- Fix always create Context.sublime-menu on open Sublime Text or change settings
