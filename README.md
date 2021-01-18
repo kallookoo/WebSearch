@@ -1,5 +1,7 @@
 # WebSearch
 
+**It will no longer be updated. If someone wants to keep updating it, contact me.**
+
 [Sublime Text](https://www.sublimetext.com) plugin to search on World Wide Web.
 
 This package adds:
